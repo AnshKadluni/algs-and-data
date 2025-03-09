@@ -1,5 +1,4 @@
-#ifndef PLAYER_H
-#define PLYAER_H
+#pragma once
 
 #include <string>
 
@@ -11,4 +10,3 @@ class Player {
         std::string getName();
 };
 
-#endif

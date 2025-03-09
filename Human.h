@@ -8,7 +8,6 @@ class Human : public Player {
         Human();
         Human(std::string name);
         char makeMove();
-        ~Human();
 };
 
 
