@@ -6,7 +6,7 @@
 int main(void) {
 
     Computer bot;
-    Human dude("Miller");
+    Human dude;
     Referee ref;
 
     Player* result = ref.refGame(&bot, &dude);
