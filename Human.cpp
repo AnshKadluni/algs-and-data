@@ -1,7 +1,7 @@
 #include "Human.h"
 #include <iostream>
 
-Human::Human(std::string name) { _name = name;};
+Human::Human() { _name = "Human";};
 
 Move* Human::makeMove() {
     std::string move;
