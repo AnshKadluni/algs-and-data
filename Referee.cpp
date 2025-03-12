@@ -1,10 +1,11 @@
 #include "Referee.h"
+#include <memory>
 
 Referee::Referee() {};
 
 Player* Referee::refGame(Player* player1, Player* player2) {
-    Move* move1 = player1->makeMove();
-    Move* move2 = player2->makeMove();
+    std::unique_ptr<Move> move1 = std::make_unique<Move>(*player1->makeMove());
+    std::unique_ptr<Move> move2 = std::make_unique<Move>(*player2->makeMove());
 
     if (move1->getName() == move2->getName()) { return nullptr; }
 
