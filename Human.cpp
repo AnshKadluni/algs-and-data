@@ -2,6 +2,7 @@
 #include <iostream>
 
 Human::Human() { _name = "Human";};
+Human::Human(std::string name) { _name = name; }
 
 Move* Human::makeMove() {
     std::string move;
