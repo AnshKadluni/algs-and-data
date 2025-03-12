@@ -15,44 +15,4 @@ class Move{
         std::vector<std::string> getWeakness(); 
 };
 
-class Rock : public Move { 
-    public:
-        Rock();
-};
-
-class Paper : public Move { 
-    public:
-        Paper();
-};
-
-class Scissors : public Move { 
-    public:
-        Scissors();
-};
-
-class Monkey : public Move { 
-    public:
-        Monkey();
-};
-
-class Pirate : public Move { 
-    public:
-        Pirate();
-};
-
-class Robot : public Move { 
-    public:
-        Robot();
-};
-
-class Ninja : public Move { 
-    public:
-        Ninja();
-};
-
-class Zombie : public Move { 
-    public:
-        Zombie();
-};
-
 #endif
