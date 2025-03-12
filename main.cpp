@@ -1,6 +1,6 @@
 #include "Referee.h"
 #include "Human.h"
-#include "Computer.cpp"
+#include "Computer.h"
 #include <iostream>
 
 int main(void) {
@@ -9,7 +9,13 @@ int main(void) {
     Human dude("Miller");
     Referee ref;
 
-    std::cout << ref.refGame(&bot, &dude)->getName() << std::endl;
+    Player* result = ref.refGame(&bot, &dude);
+    if (result != nullptr) {
+        std::cout << result->getName() << " wins!\n";
+    } else {
+        std::cout << "Draw!\n";
+    }
+
 
     return 0;
 }

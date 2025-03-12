@@ -1,82 +1,58 @@
+#ifndef MOVE_H
+#define MOVE_H
+
 #include <string>
 #include <stdlib.h>
+#include <vector>
 
 class Move{
     protected:
-        std::string weakness[2] = {};
+        std::vector<std::string> weakness = {};
         std::string name;
     public:
         Move();
         std::string getName();
-        std::string* getWeakness(); 
+        std::vector<std::string> getWeakness(); 
 };
 
 class Rock : public Move { 
     public:
-        Rock() { 
-            name = "Rock"; 
-            weakness[0] = "Paper";
-        };
+        Rock();
 };
 
 class Paper : public Move { 
     public:
-        Paper() {
-            name = "Paper";
-            weakness[0] = "Scissors";
-        }
+        Paper();
 };
 
 class Scissors : public Move { 
     public:
-        Scissors() {
-            name = "Scissors";
-            weakness[0] = "Rock";
-        }
+        Scissors();
 };
 
 class Monkey : public Move { 
     public:
-        Monkey() {
-            name = "Monkey";
-            weakness[0] = "Pirate";
-            weakness[1] = "Zombie";
-        }
+        Monkey();
 };
 
 class Pirate : public Move { 
     public:
-        Pirate() {
-            name = "Pirate";
-            weakness[0] = "Ninja";
-            weakness[1] = "Zombie";
-        }
+        Pirate();
 };
 
 class Robot : public Move { 
     public:
-        Robot() {
-            name = "Robot";
-            weakness[0] = "Pirate";
-            weakness[1] = "Monkey";
-        }
+        Robot();
 };
 
 class Ninja : public Move { 
     public:
-        Ninja() {
-            name = "Ninja";
-            weakness[0] = "Robot";
-            weakness[1] = "Monkey";
-        }
+        Ninja();
 };
 
 class Zombie : public Move { 
     public:
-        Zombie() {
-            name = "Zombie";
-            weakness[0] = "Robot";
-            weakness[1] = "Ninja";
-        }
+        Zombie();
 };
 
+#endif
