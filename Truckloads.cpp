@@ -1,29 +1,13 @@
-#include <iostream>
+#include "Truckloads.h"
 
-class Truckloads {
-    public:
-        Truckloads(){};
+int Truckloads::numTrucks(int numCrates, int loadSize) {
+    if (numCrates <= loadSize) return 1;
+    if (numCrates%2 == 0) {
         
-        int numTrucks(int numCrates, int loadSize) {
-            if (numCrates <= loadSize) return 1;
-            if (numCrates%2 == 0) {
-                
-                return 2*numTrucks(static_cast<int>(numCrates/2), loadSize);
-                
-            } else {
-                
-                return numTrucks(static_cast<int>(numCrates/2), loadSize) + numTrucks(static_cast<int>(numCrates/2) + 1, loadSize);
-            }
-        }
+        return 2*numTrucks(static_cast<int>(numCrates/2), loadSize);
         
-};
-
-int main(void) {
-
-    Truckloads t;
-
-    std::cout << t.numTrucks(1024, 5) << std::endl;
-
-    return 0;
+    } else {
+        
+        return numTrucks(static_cast<int>(numCrates/2), loadSize) + numTrucks(static_cast<int>(numCrates/2) + 1, loadSize);
+    }
 }
-
