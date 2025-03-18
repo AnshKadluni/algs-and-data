@@ -2,7 +2,7 @@
 
 int Reverser::reverseDigit(int value) {
     if (value < 10) return value%10;
-    return static_cast<int>((value%10)*(pow(10, log10(value)))) + reverseDigit(static_cast<int>(value/10));
+    return (value%10)*(pow(10, static_cast<int>(log10(value)))) + reverseDigit(static_cast<int>(value/10));
 };
 
 std::string Reverser::reverseString(std::string characters) {
