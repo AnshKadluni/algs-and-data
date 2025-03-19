@@ -1,6 +1,7 @@
 #include "Reverser.h"
 
 int Reverser::reverseDigit(int value) {
+    if (value < 0) return -1;
     if (value < 10) return value%10;
     return (value%10)*(pow(10, static_cast<int>(log10(value)))) + reverseDigit(static_cast<int>(value/10));
 };
