@@ -10,4 +10,5 @@ int Truckloads::numTrucks(int numCrates, int loadSize) {
         
         return numTrucks(static_cast<int>(numCrates/2), loadSize) + numTrucks(static_cast<int>(numCrates/2) + 1, loadSize);
     }
+
 }
