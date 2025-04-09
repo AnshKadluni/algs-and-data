@@ -5,6 +5,8 @@
 
 class RecursiveBinarySearch{
     public:
+        int high;
+        int low;
         RecursiveBinarySearch() {};
 
         bool search(std::vector<int>, int);
