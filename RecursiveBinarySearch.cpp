@@ -8,7 +8,7 @@ bool RecursiveBinarySearch::search(std::vector<int> list, int target) {
 bool RecursiveBinarySearch::binSearch(std::vector<int> list, int low, int high, int target) {
     if (low > high) return false;
 
-    int mid = static_cast<int>(low+(high-low)/2);
+    int mid = static_cast<int>((low+high)/2);
 
     if (list[mid] == target) return true;
 
