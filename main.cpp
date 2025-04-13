@@ -14,12 +14,13 @@ int main(void) {
         list.push_back(x);
     }
 
+    BubbleSort b;
     QuickSort q;
 
-    q.sort(list, 0, n);
+    std::vector<int> val = q.sort(list);
 
     for (int i = 0; i < n; i++) {
-        std::cout << list[i] << ' ';
+        std::cout << val[i] << ' ';
     }
 
     std::cout << std::endl;

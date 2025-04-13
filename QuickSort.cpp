@@ -1,7 +1,7 @@
 #include "QuickSort.h"
 #include <iostream>
 
-void QuickSort::sort(std::vector<int> &list, int low, int high) {
+void QuickSort::Qsort(std::vector<int> &list, int low, int high) {
 
     if (low >= high) return;
 
@@ -24,7 +24,12 @@ void QuickSort::sort(std::vector<int> &list, int low, int high) {
     list[index] = pivot;
     list[high] = temp;
 
-    sort(list, low, index-1);
-    sort(list, index+1, high);
+    Qsort(list, low, index-1);
+    Qsort(list, index+1, high);
     
+};
+
+std::vector<int> QuickSort::sort(std::vector<int> list) {
+    Qsort(list, 0, list.size());
+    return list;
 }

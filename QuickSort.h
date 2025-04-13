@@ -6,8 +6,9 @@
 class QuickSort : public Sort {
     public:
         QuickSort() {};
-        void sort(std::vector<int> &list, int low, int high);
-        std::vector<int> sort(std::vector<int> list) {};
+        std::vector<int> sort(std::vector<int> list);
+        void Qsort(std::vector<int> &list, int low, int high);
+        
 };
 
 
