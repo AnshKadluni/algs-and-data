@@ -1,14 +1,20 @@
 #include "RecursiveBinarySearch.h"
+#include <vector>
 
-bool RecursiveBinarySearch::search(std::vector<int> list, int mid) {
-    if (list[mid] == 1) return true;
+bool RecursiveBinarySearch::search(std::vector<int> list, int target) {
+    return binSearch(list, 0, list.size() - 1, target);
+}
+
+bool RecursiveBinarySearch::binSearch(std::vector<int> list, int low, int high, int target) {
     if (low > high) return false;
-    if (list[mid] > 1){
-        low = mid;
-        search(list, (mid + list.size())/2);
+
+    int mid = static_cast<int>(low+(high-low)/2);
+
+    if (list[mid] == target) return true;
+
+    if (target < list[mid]) {
+        return binSearch(list, low, mid-1, target);
     } else {
-        high = mid/2;
-        search(list, mid/2);
+        return binSearch(list, mid+1, high, target);
     }
-    
 }

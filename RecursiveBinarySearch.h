@@ -9,7 +9,8 @@ class RecursiveBinarySearch{
         int low;
         RecursiveBinarySearch() {};
 
-        bool search(std::vector<int>, int);
+        bool search(std::vector<int> list, int target);
+        bool binSearch(std::vector<int> list, int low, int high, int target);
         
 };
 
