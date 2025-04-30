@@ -96,11 +96,12 @@ int LinkedList::search(int target) {
 };
 
 void LinkedList::printList() {
+    if (head == nullptr) return;
     Node* curr = head;
-
+    std::cout << '[';
     while (curr != nullptr) {
         std::cout << curr->getData() << ' ';
         curr = curr->getLink();
     }
-    std::cout << std::endl;
+    std::cout << "\b]" << std::endl;
 };
