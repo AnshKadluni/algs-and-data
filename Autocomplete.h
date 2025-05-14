@@ -10,12 +10,12 @@ class Autocomplete
     private:
         TrieNode* root;
     public:
-        Autocomplete(/* args */);
+        Autocomplete();
         std::vector<std::string> getSuggestions(std::string partialWord); // return the known words that start with partialWord
 
         void insert(std::string word); // add a word to the known words
 
-        void autoSearch(TrieNode* root, std::vector<std::string>& getSuggestions);
+        void autoSearch(TrieNode* root, std::vector<std::string>& suggestions, std::string partialWord, std::string suffix);
         ~Autocomplete();
 };
 

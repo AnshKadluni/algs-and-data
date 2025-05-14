@@ -5,6 +5,4 @@ TrieNode::TrieNode() {
         children[i] = nullptr;
     }
 };
-TrieNode::~TrieNode() {
-    //delete[] children;
-}
+TrieNode::~TrieNode() {}
