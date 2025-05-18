@@ -1,15 +1,17 @@
 #include "TrieNode.h"
 #include "Autocomplete.h"
+#include "TrieNode2.h"
+#include "PrefixMatcher.h"
 
 int main(void) {
 
-    Autocomplete A;
+    PrefixMatcher P;
 
-    A.insert("apple");
-    A.insert("axe");
-    A.insert("app");
+    P.insert("1100110111", 1);
+    P.insert("110011011", 2);
+    P.insert("11001101", 3);
 
-    vector<string> sugs = A.getSuggestions("ap");
+    cout << P.selectRouter("110011011001") << endl;
     
     return 0;
 }
