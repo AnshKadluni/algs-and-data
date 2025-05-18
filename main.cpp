@@ -1,16 +1,15 @@
-#include "Finder.h"
+#include "TrieNode.h"
+#include "Autocomplete.h"
 
 int main(void) {
 
-    Finder f;
+    Autocomplete A;
 
-    std::vector<int> x = f.findSubstrings("aaaab", "aaab");
+    A.insert("apple");
+    A.insert("axe");
+    A.insert("app");
 
-    for (size_t i = 0; i < x.size(); i++)
-    {
-        std::cout << x[i] << std::endl;
-    }
+    vector<string> sugs = A.getSuggestions("ap");
     
-
     return 0;
 }
