@@ -7,11 +7,17 @@ PrefixMatcher::PrefixMatcher() {
 int PrefixMatcher::selectRouter(string networkAddress) {
     TrieNode2* curr = root;
 
+    int longest = -1;
     for (int i = 0; i < networkAddress.length(); i++) {
         if (curr == nullptr) break;
+        if (curr->routerNumber != -1) {
+            longest = curr->routerNumber;
+        }
         curr = curr->children[networkAddress[i]-'0'];
     }
-    
+
+    if (longest != -1) return longest;
+
     while (curr != nullptr) {
         if (curr->routerNumber != -1) return curr->routerNumber;
         if (curr->children[0] != nullptr) {
@@ -20,6 +26,8 @@ int PrefixMatcher::selectRouter(string networkAddress) {
             curr = curr->children[1];
         }
     }
+
+    return -1;
 };
 
 void PrefixMatcher::insert(string address, int routerNumber) {
