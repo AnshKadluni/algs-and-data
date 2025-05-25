@@ -154,7 +154,7 @@ class Heap {
         // TO BE IMPLEMENTED
         // Insert an element into the heap
         void insert(T element) {
-            
+            return;
         }
         
         // TO BE IMPLEMENTED
