@@ -154,39 +154,40 @@ class Heap {
         // TO BE IMPLEMENTED
         // Insert an element into the heap
         void insert(T element) {
-            return;
+            this->tree.push_back(element);
+
+            for(heapIndex index = this->getParentPosition(this->tree.size()); index >= 1; index--) { 
+                this->heapifyDown(index);
+            }
         }
         
         // TO BE IMPLEMENTED
         // Remove an element from the heap
         void remove(T value) {
-            size_t index = -1;
-            for (size_t i = 0; i < this->tree.size(); i++) {
-                if (this->tree[i] == value) {
-                    index = i;
+            heapIndex valueIndex = -1;
+            for (heapIndex index = 1; index < this->tree.size(); index++) {
+                if (this->tree.at(index) == value) {
+                    valueIndex = index;
                     break;
                 }
             }
 
-            if (index == -1) return; 
+            if (valueIndex == -1) return;
+            this->tree.at(valueIndex) = this->tree.back();
+            this->tree.pop_back();
 
-            this->tree.remove(this->tree.begin()+index);
-            
-            for (size_t i = this->tree.size()/2; i >= 0; i--) {
-                heapifyDown(i);
+            for(heapIndex index = this->getParentPosition(valueIndex); index >= 1; index--) { 
+                this->heapifyDown(index);
             }
-            return;
         }
         
         // TO BE IMPLEMENTED
         // Get the minimum element (in this case, the maximum element of the max-heap)
         T getMin() {
-            for(heapIndex index = 0; index < this->tree.size(); index++) {
-                // Print only non-dummy elements
-                if(this->tree.at(index) != (T) NULL) {
-                    return this->tree.at(index);
-                }
+            if (this->isHeapEmpty()) {
+                return std::numeric_limits<T>::max();
             }
+            return this->tree.at(1);
         }
 };
 
