@@ -160,28 +160,33 @@ class Heap {
         // TO BE IMPLEMENTED
         // Remove an element from the heap
         void remove(T value) {
-            //size_t index = -1;
-            //for (size_t i = 0; i < heap.size(); i++) {
-            //    if (heap[i] == value) {
-            //        index = i;
-            //        break;
-            //    }
-            //}
-//
-            //if (index == -1) return; 
-//
-            //heap.remove(heap.begin()+i);
-            //
-            //for (size_t i = heap.size()/2; i >= 0; i--) {
-            //    heapifyDown(i);
-            //}
+            size_t index = -1;
+            for (size_t i = 0; i < this->tree.size(); i++) {
+                if (this->tree[i] == value) {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index == -1) return; 
+
+            this->tree.remove(this->tree.begin()+index);
+            
+            for (size_t i = this->tree.size()/2; i >= 0; i--) {
+                heapifyDown(i);
+            }
             return;
         }
         
         // TO BE IMPLEMENTED
         // Get the minimum element (in this case, the maximum element of the max-heap)
         T getMin() {
-            return this->tree[0];
+            for(heapIndex index = 0; index < this->tree.size(); index++) {
+                // Print only non-dummy elements
+                if(this->tree.at(index) != (T) NULL) {
+                    return this->tree.at(index);
+                }
+            }
         }
 };
 
