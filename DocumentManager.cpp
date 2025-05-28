@@ -3,7 +3,7 @@
 DocumentManager::DocumentManager() {};
 
 void DocumentManager::addDocument(string name, int id, int license_limit) {
-    //if (documents.find(id) != documents.end()) return;
+    if (documents.find(id) != documents.end()) return;
     documents[id] = {name, license_limit};
 }
 void DocumentManager::addPatron(int patronID) {
@@ -29,9 +29,13 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {
     }
 
     if (isBorrowed) return true;
-    if (documents.find(docid) == documents.end() || documents[docid].second == 0) return false;
+    if (documents.find(docid) == documents.end() || documents[docid].second == 0) {
+        
+        return false;
+    }
     documents[docid].second--;
-    patrons[docid].push_back(docid);
+    patrons[patronID].push_back(docid);
+    //cout << patrons[docid][0] << endl;
     return true;
      
 }
@@ -46,7 +50,9 @@ void DocumentManager::returnDocument(int docid, int patronID) {
         index++;
     }
 
-    if (!isBorrowed) return;
+    if (!isBorrowed) {
+        return;
+    };
 
     documents[docid].second++;
     patrons[patronID].erase(patrons[patronID].begin() + index);

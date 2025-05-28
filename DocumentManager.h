@@ -8,9 +8,11 @@ using namespace std;
 class DocumentManager
 {
 private:
+    
+public:
     unordered_map<int, pair<string, int>> documents;
     unordered_map<int, vector<int>> patrons;
-public:
+
     DocumentManager();
 
     void addDocument(string name, int id, int license_limit);
