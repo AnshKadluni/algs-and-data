@@ -3,7 +3,7 @@
 DocumentManager::DocumentManager() {};
 
 void DocumentManager::addDocument(string name, int id, int license_limit) {
-    if (documents.find(id) != documents.end()) return;
+    //if (documents.find(id) != documents.end()) return;
     documents[id] = {name, license_limit};
 }
 void DocumentManager::addPatron(int patronID) {
